@@ -9,6 +9,7 @@
       idrac_ip: "{{ idrac_ip }}"
       idrac_user: "{{ idrac_user }}"
       idrac_password: "{{ idrac_password }}"
+      validate_certs: false
     delegate_to: localhost
    
       
