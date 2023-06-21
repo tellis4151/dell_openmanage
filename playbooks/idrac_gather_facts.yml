@@ -1,0 +1,21 @@
+---
+- name: iDrac gather facts
+  hosts: r640
+  gather_facts: false 
+
+  tasks:
+  - name: iDRAC gather facts
+    ansible.builtin.import_role:
+      name: idrac_gather_facts
+    vars:
+      hostname: "{{ ip_address }}"
+      passwod: "{{ password }}"
+      target:
+        - System
+        - BIOS
+        - CPU
+        - Memory
+        - NIC
+        - PowerSupply
+        - VirtualDisk
+        - PhysicalDisk
