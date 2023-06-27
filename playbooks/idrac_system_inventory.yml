@@ -11,5 +11,30 @@
       idrac_password: "{{ idrac_password }}"
       validate_certs: false
     delegate_to: localhost
+
+  - name: Display iDrac Power State
+    debug:
+      msg: "{{ PowerState }}"
    
-      
+  - name: Display Model
+    debug:
+      msg: "{{ Model }}"
+
+ 
+  - name: Display iDrac URL
+    debug:
+      msg: "{{ iDRACURL }}"
+
+
+  - name: Display Virtual Disk
+    debug:
+      msg: "{{ VirtualDisk.FQDD }}"
+
+
+  - name: Display CPU Model
+    debug:
+      msg: "{{ CPU.Model }}"
+
+  - name: Display Firmware Version
+    debug:
+      msg: "{{ iDrac.FirmwareVersion }}"
