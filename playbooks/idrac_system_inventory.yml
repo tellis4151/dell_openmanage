@@ -14,27 +14,18 @@
 
   - name: Display iDrac Power State
     debug:
-      msg: "{{ PowerState }}"
+      msg: "{{ system_info.System.PowerState }}"
    
   - name: Display Model
     debug:
-      msg: "{{ Model }}"
+      msg: "{{ system_info.System.Model }}"
 
  
   - name: Display iDrac URL
     debug:
-      msg: "{{ iDRACURL }}"
+      msg: "{{ system_info.System.iDRACURL }}"
 
 
-  - name: Display Virtual Disk
+  - name: Display Memory
     debug:
-      msg: "{{ VirtualDisk.FQDD }}"
-
-
-  - name: Display CPU Model
-    debug:
-      msg: "{{ CPU.Model }}"
-
-  - name: Display Firmware Version
-    debug:
-      msg: "{{ iDrac.FirmwareVersion }}"
+      msg: "{{ system_info.Systm.SysMemTotalSize }}"
