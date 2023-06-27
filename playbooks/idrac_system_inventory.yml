@@ -12,20 +12,3 @@
       validate_certs: false
     delegate_to: localhost
 
-  - name: Display iDrac Power State
-    debug:
-      msg: "{{ system_info.System.PowerState }}"
-   
-  - name: Display Model
-    debug:
-      msg: "{{ system_info.System.Model }}"
-
- 
-  - name: Display iDrac URL
-    debug:
-      msg: "{{ system_info.System.iDRACURL }}"
-
-
-  - name: Display Memory
-    debug:
-      msg: "{{ system_info.Systm.SysMemTotalSize }}"
