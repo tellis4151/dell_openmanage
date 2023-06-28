@@ -1,0 +1,14 @@
+---
+- name: Gather Storage Information
+  hosts: r640
+  gather_facts: false
+
+  tasks:
+  - name: View all volume details
+    dellemc.openmanage.dellemc_idrac_storage_volume:
+      idrac_ip: "{{ idrac_ip }}"
+      idrac_user: "{{ idrac_user }}"
+      idrac_password: "{{ idrac_password }}"
+      validate_certs: false
+      state: view
+    delegate_to: localhost

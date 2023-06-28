@@ -1,0 +1,25 @@
+---
+- name: Create RAID Storage Volume
+  hosts: r640
+  gather_facts: false
+
+  tasks:
+  - name: Create RAID 1 Volume
+    dellemc.openmanage.dellemc_idrac_storage_volume:
+      idrac_ip: "{{ idrac_ip }}"
+      idrac_user: "{{ idrac_user }}"
+      idrac_password: "{{ idrac_password }}"
+      validate_certs: false
+      raid_reset_config: True
+      volume_type: RAID 1
+      controller_id: RAID.Integrated.1-1
+      span_depth: 1
+      span_length: 2
+      disk_cache_policy: Enabled
+      write_cache_policy: WriteBackForce
+      raid_init_operation: Fast
+      volumes:
+        - name: ssd_volume
+          drives:
+            id: ["Disk.Bay.8:Enclosure.Internal.0-1:RAID.Integrated.1-1","Disk.Bay.9:Enclosure.Internal.0-1:RAID.Integrated.1-1"]
+    delegate_to: localhost

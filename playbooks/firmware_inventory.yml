@@ -1,0 +1,16 @@
+---
+- name: Gather Firmware Inventory
+  hosts: r640
+  gather_facts: false
+
+  tasks:
+  - name: Gather Installed Firmware Inventory
+    dellemc.openmanage.dellemc_get_firmware_inventory:
+      idrac_ip: "{{ idrac_ip }}"
+      idrac_user: "{{ idrac_user }}"
+      idrac_password: "{{ idrac_password }}"
+      validate_certs: false
+    delegate_to: localhost
+   
+
+
