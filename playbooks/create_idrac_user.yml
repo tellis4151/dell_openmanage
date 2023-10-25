@@ -1,0 +1,18 @@
+---
+- name: Create iDrac User
+  hosts: r640
+  become: true
+  
+  tasks:
+  - name: Create Sysadmin user
+    dellemc.openmanage.idrac_user:
+      idrac_ip: "{{ idrac_ip }}"
+      idrac_user: "{{ idrac_user }}"
+      idrac_password: "{{ idrac_password }}"
+      state: present
+      user_name: sysadmin
+      user_password: sysadmin
+      privilege: Administrator
+      ipmi_lan_privilege: Administrator
+      ipmi_serial_privilege: Administrator
+      enable: false
