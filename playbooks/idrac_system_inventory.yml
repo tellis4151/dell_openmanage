@@ -11,4 +11,9 @@
       idrac_password: "{{ idrac_password }}"
       validate_certs: false
     delegate_to: localhost
+    register: info
+
+  - name: Display info
+    debug:
+      var: info
 

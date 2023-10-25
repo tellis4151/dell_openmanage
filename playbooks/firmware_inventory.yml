@@ -11,6 +11,10 @@
       idrac_password: "{{ password }}"
       validate_certs: false
     delegate_to: localhost
-   
+    register: firmware
+
+  - name: Display Firmware
+    debug:
+      var: firmware 
 
 
